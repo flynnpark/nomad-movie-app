@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://movies-api.nomadcoders.workers.dev';
+import { BASE_URL } from './constants';
 
 const apiClient = axios.create({ baseURL: BASE_URL });
 
