@@ -1,25 +1,16 @@
 import axios from 'axios';
 
 import { BASE_URL } from './constants';
+import { MovieListType } from './types/app';
 
 const apiClient = axios.create({ baseURL: BASE_URL });
 
-export async function getPopular() {
-  const { data } = await apiClient.get<GetMoviesResponse>('/popular');
+export async function getMovies(type: MovieListType) {
+  const { data } = await apiClient.get<GetMoviesResponse>(`/${type}`);
   return data;
 }
 
-export async function getNowPlaying() {
-  const { data } = await apiClient.get<GetMoviesResponse>('/now-playing');
-  return data;
-}
-
-export async function getComingSoon() {
-  const { data } = await apiClient.get<GetMoviesResponse>('/coming-soon');
-  return data;
-}
-
-export async function getMovie(id: string) {
+export async function getMovieDetail(id: string) {
   const { data } = await apiClient.get<GetMovieDetailResponse>('/movie', {
     params: {
       id,
