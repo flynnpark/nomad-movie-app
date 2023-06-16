@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-import { BASE_URL } from './constants';
-import { MovieListType } from './types/app';
+import { BASE_URL, MovieListType } from './constants';
 
 const apiClient = axios.create({ baseURL: BASE_URL });
 
