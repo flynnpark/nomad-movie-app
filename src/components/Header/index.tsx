@@ -1,20 +1,22 @@
 import { Link } from 'react-router-dom';
 
+import { MenuItem, MenuItems, Nav } from './styled';
+
 function Header() {
   return (
-    <nav>
-      <ul>
-        <li>
+    <Nav>
+      <MenuItems>
+        <MenuItem>
           <Link to="?type=popular">Popular</Link>
-        </li>
-        <li>
+        </MenuItem>
+        <MenuItem>
           <Link to="?type=now-playing">Now Playing</Link>
-        </li>
-        <li>
+        </MenuItem>
+        <MenuItem>
           <Link to="?type=coming-soon">Coming Soon</Link>
-        </li>
-      </ul>
-    </nav>
+        </MenuItem>
+      </MenuItems>
+    </Nav>
   );
 }
 
