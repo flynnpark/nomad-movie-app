@@ -1,4 +1,4 @@
-interface IMovie {
+interface Movie {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -15,7 +15,7 @@ interface IMovie {
   vote_count: number;
 }
 
-interface GetMovieDetailResponse extends IMovie {
+interface GetMovieDetailResponse extends Movie {
   belongs_to_collection: BelongsToCollection;
   budget: number;
   genres: Genre[];
@@ -62,5 +62,5 @@ interface SpokenLanguage {
 
 interface GetMoviesResponse {
   page: number;
-  results: IMovie[];
+  results: Movie[];
 }

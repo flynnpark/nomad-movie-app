@@ -1,21 +1,29 @@
-import { Link } from 'react-router-dom';
-
-import { MenuItem, MenuItems, Nav } from './styled';
+import { MovieListType } from '../../constants';
+import useTypeFromQuery from '../../hooks/useTypeFromQuery';
+import Item from './Item';
+import { MenuItems, Nav, NavContainer } from './styled';
 
 function Header() {
+  const type = useTypeFromQuery();
+
   return (
     <Nav>
-      <MenuItems>
-        <MenuItem>
-          <Link to="?type=popular">Popular</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="?type=now-playing">Now Playing</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="?type=coming-soon">Coming Soon</Link>
-        </MenuItem>
-      </MenuItems>
+      <NavContainer>
+        <MenuItems>
+          {[
+            MovieListType.POPULAR,
+            MovieListType.NOW_PLAYING,
+            MovieListType.COMING_SOONG,
+          ].map((listType) => (
+            <Item
+              key={listType}
+              layoutId="select-header-menu"
+              listType={listType}
+              selected={type === listType}
+            />
+          ))}
+        </MenuItems>
+      </NavContainer>
     </Nav>
   );
 }

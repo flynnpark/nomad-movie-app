@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     ${reset}
 
     body {
+      font-family: 'Raleway', sans-serif;
       background-color: #1e272e;
       color: #d2dae2;
     }

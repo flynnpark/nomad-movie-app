@@ -5,3 +5,5 @@ export enum MovieListType {
   NOW_PLAYING = 'now-playing',
   POPULAR = 'popular',
 }
+
+export const MAX_WIDTH = 960;
