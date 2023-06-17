@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { makeBackdropUrl } from '../../api';
+import useLockBodyScroll from '../../hooks/useLockBodyScroll';
 import useMovieDetailData from '../../hooks/useMovieDetailData';
 import {
   Backdrop,
@@ -16,20 +16,10 @@ import {
 } from './styled';
 
 function MovieDetail() {
+  useLockBodyScroll();
+
   const movieDetail = useMovieDetailData() as GetMovieDetailResponse;
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const scrollbarWidth = window.innerWidth - document.body.clientWidth;
-
-    document.body.style.overflow = 'hidden';
-    document.body.style.paddingRight = `${scrollbarWidth}px`;
-
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.body.style.paddingRight = `0px`;
-    };
-  }, []);
 
   const handleModalClose = () => {
     navigate(-1);
