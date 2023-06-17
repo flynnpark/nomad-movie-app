@@ -6,6 +6,7 @@ import useMovieDetailData from '../../hooks/useMovieDetailData';
 import {
   Backdrop,
   BackdropArea,
+  Container,
   DetailArea,
   Information,
   ItemName,
@@ -29,11 +30,17 @@ function MovieDetail() {
     navigate(-1);
   };
 
-  const backdropUrl = makeBackdropUrl(movieDetail?.backdrop_path);
+  const backdropUrl = makeBackdropUrl(movieDetail.backdrop_path);
 
   return (
-    <Backdrop onClick={handleModalClose}>
-      <Modal>
+    <Container>
+      <Backdrop
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
+        onClick={handleModalClose}
+      />
+      <Modal layoutId={String(movieDetail.id)}>
         <BackdropArea backdropUrl={backdropUrl} />
         <DetailArea>
           <Title>{movieDetail.title}</Title>
@@ -75,7 +82,7 @@ function MovieDetail() {
           </Information>
         </DetailArea>
       </Modal>
-    </Backdrop>
+    </Container>
   );
 }
 

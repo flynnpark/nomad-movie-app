@@ -1,8 +1,9 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import { MAX_WIDTH } from '../../constants';
 
-export const ListContainer = styled.div`
+export const ListContainer = styled(motion.div)`
   max-width: ${MAX_WIDTH}px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

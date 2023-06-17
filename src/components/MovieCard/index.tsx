@@ -13,7 +13,16 @@ function MovieCard({ movie }: Props) {
 
   const posterUrl = makeImageUrl(movie.poster_path);
   return (
-    <Card>
+    <Card
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+          opacity: 1,
+          y: 0,
+        },
+      }}
+      layoutId={String(movie.id)}
+    >
       <Link to={`/movies/${movie.id}?type=${type}`}>
         <Poster alt={movie.title} src={posterUrl} />
         <Title>{movie.title}</Title>

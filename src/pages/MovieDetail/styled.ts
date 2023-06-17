@@ -1,7 +1,16 @@
+import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
-export const Backdrop = styled.div`
+export const Container = styled.div`
   position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+export const Backdrop = styled(motion.div)`
+  position: absolute;
   left: 0;
   top: 0;
   width: 100%;
@@ -9,7 +18,7 @@ export const Backdrop = styled.div`
   background: rgba(0, 0, 0, 0.45);
 `;
 
-export const Modal = styled.div`
+export const Modal = styled(motion.div)`
   position: relative;
   width: 600px;
   margin: 150px auto;
@@ -18,7 +27,7 @@ export const Modal = styled.div`
   overflow: hidden;
 `;
 
-export const BackdropArea = styled.div<{
+export const BackdropArea = styled(motion.div)<{
   backdropUrl: string;
 }>`
   width: 600px;
