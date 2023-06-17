@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 import { makeImageUrl } from '../../api';
-import useTypeFromQuery from '../../hooks/useTypeFromQuery';
 import { Card, Poster, Title } from './styled';
 
 interface Props {
@@ -9,9 +8,8 @@ interface Props {
 }
 
 function MovieCard({ movie }: Props) {
-  const type = useTypeFromQuery();
-
   const posterUrl = makeImageUrl(movie.poster_path);
+
   return (
     <Card
       variants={{
@@ -23,7 +21,7 @@ function MovieCard({ movie }: Props) {
       }}
       layoutId={String(movie.id)}
     >
-      <Link to={`/movies/${movie.id}?type=${type}`}>
+      <Link to={`/movies/${movie.id}`}>
         <Poster alt={movie.title} src={posterUrl} />
         <Title>{movie.title}</Title>
       </Link>
