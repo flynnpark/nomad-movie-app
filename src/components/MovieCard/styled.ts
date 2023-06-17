@@ -1,0 +1,17 @@
+import styled from 'styled-components';
+
+export const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const Poster = styled.img`
+  border-radius: 12px;
+  max-width: 100%;
+`;
+
+export const Title = styled.h1`
+  margin-top: 12px;
+  text-align: center;
+`;

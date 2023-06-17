@@ -18,10 +18,10 @@ export async function getMovieDetail(id: string) {
   return data;
 }
 
-export function makeImagePath(path: string) {
+export function makeImageUrl(path: string) {
   return `https://image.tmdb.org/t/p/w500${path}`;
 }
 
-export function makeBgPath(path: string) {
+export function makeBackdropUrl(path: string) {
   return `https://image.tmdb.org/t/p/original${path}`;
 }

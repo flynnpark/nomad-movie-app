@@ -1,17 +1,20 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
-import { makeImagePath } from '../../api';
+import { makeImageUrl } from '../../api';
+import useTypeFromQuery from '../../hooks/useTypeFromQuery';
+import { Card, Poster, Title } from './styled';
 
 interface Props {
   movie: Movie;
 }
 
 function MovieCard({ movie }: Props) {
-  const posterUrl = makeImagePath(movie.poster_path);
+  const type = useTypeFromQuery();
+
+  const posterUrl = makeImageUrl(movie.poster_path);
   return (
     <Card>
-      <Link to={`/movies/${movie.id}`}>
+      <Link to={`/movies/${movie.id}?type=${type}`}>
         <Poster alt={movie.title} src={posterUrl} />
         <Title>{movie.title}</Title>
       </Link>
@@ -20,19 +23,3 @@ function MovieCard({ movie }: Props) {
 }
 
 export default MovieCard;
-
-const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const Poster = styled.img`
-  border-radius: 12px;
-  max-width: 100%;
-`;
-
-const Title = styled.h1`
-  margin-top: 12px;
-  text-align: center;
-`;

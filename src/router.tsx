@@ -12,14 +12,16 @@ const router = createBrowserRouter(
     {
       children: [
         {
+          children: [
+            {
+              element: <MovieDetail />,
+              loader: movieDetailLoader(queryClient),
+              path: 'movies/:movieId',
+            },
+          ],
           element: <Home />,
           loader: homeLoader(queryClient),
           path: '',
-        },
-        {
-          element: <MovieDetail />,
-          loader: movieDetailLoader(queryClient),
-          path: 'movies/:movieId',
         },
       ],
       element: <App />,
