@@ -40,41 +40,21 @@ function MovieDetail() {
         <DetailArea>
           <Title>{movieDetail.title}</Title>
           <Overview>{movieDetail.overview}</Overview>
-          <Information>
-            {!!movieDetail.budget && (
-              <>
-                <ItemName>Budget:</ItemName> {movieDetail.budget}
-              </>
-            )}
-          </Information>
-          <Information>
-            {!!movieDetail.revenue && (
-              <>
-                <ItemName>Revenue:</ItemName> {movieDetail.revenue}
-              </>
-            )}
-          </Information>
-          <Information>
-            {!!movieDetail.runtime && (
-              <>
-                <ItemName>Runtime:</ItemName> {movieDetail.runtime}
-              </>
-            )}
-          </Information>
-          <Information>
-            {!!movieDetail.runtime && (
-              <>
-                <ItemName>Rating:</ItemName> {movieDetail.runtime}
-              </>
-            )}
-          </Information>
-          <Information>
-            {!!movieDetail.homepage && (
-              <>
-                <ItemName>Homepage:</ItemName> {movieDetail.homepage}
-              </>
-            )}
-          </Information>
+          {[
+            movieDetail.budget,
+            movieDetail.revenue,
+            movieDetail.runtime,
+            movieDetail.runtime,
+            movieDetail.homepage,
+          ].map((item) => (
+            <>
+              {item && (
+                <Information>
+                  <ItemName>Budget:</ItemName> {movieDetail.budget}
+                </Information>
+              )}
+            </>
+          ))}
         </DetailArea>
       </Modal>
     </Container>
