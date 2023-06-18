@@ -41,16 +41,16 @@ function MovieDetail() {
           <Title>{movieDetail.title}</Title>
           <Overview>{movieDetail.overview}</Overview>
           {[
-            movieDetail.budget,
-            movieDetail.revenue,
-            movieDetail.runtime,
-            movieDetail.runtime,
-            movieDetail.homepage,
-          ].map((item) => (
+            { key: 'Budget', value: movieDetail.budget },
+            { key: 'Revenue', value: movieDetail.revenue },
+            { key: 'Runtime', value: movieDetail.runtime },
+            { key: 'Rating', value: movieDetail.vote_average },
+            { key: 'Homepage', value: movieDetail.homepage },
+          ].map(({ key, value }) => (
             <>
-              {item && (
+              {value && (
                 <Information>
-                  <ItemName>Budget:</ItemName> {movieDetail.budget}
+                  <ItemName>{key}:</ItemName> {value}
                 </Information>
               )}
             </>
