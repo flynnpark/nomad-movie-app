@@ -19,10 +19,14 @@ function MovieCard({ movie }: Props) {
           y: 0,
         },
       }}
-      layoutId={String(movie.id)}
     >
       <Link to={`/movies/${movie.id}`}>
-        <Poster alt={movie.title} src={posterUrl} />
+        <Poster
+          alt={movie.title}
+          layoutId={String(movie.id)}
+          src={posterUrl}
+          whileHover={{ scale: 1.1 }}
+        />
         <Title>{movie.title}</Title>
       </Link>
     </Card>

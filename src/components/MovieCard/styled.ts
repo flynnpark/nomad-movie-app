@@ -7,7 +7,7 @@ export const Card = styled(motion.div)`
   justify-content: center;
 `;
 
-export const Poster = styled.img`
+export const Poster = styled(motion.img)`
   border-radius: 12px;
   max-width: 100%;
 `;
