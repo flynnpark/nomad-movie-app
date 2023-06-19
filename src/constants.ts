@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://movies-api.nomadcoders.workers.dev';
+export const BASE_URL = 'https://api.themoviedb.org/3/movie';
 
 export enum MovieListType {
   COMING_SOONG = 'coming-soon',

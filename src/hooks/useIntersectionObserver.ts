@@ -16,7 +16,7 @@ function useIntersectionObserver(callback: () => void) {
             callback();
           }
         },
-        { rootMargin: '100px 0px' }
+        { rootMargin: '400px 0px' }
       );
 
       if (node) {
