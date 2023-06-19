@@ -25,6 +25,9 @@ export const Modal = styled(motion.div)`
   background-color: #485460;
   border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 `;
 
 export const BackdropArea = styled(motion.div)<{
