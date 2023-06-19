@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { makeBackdropUrl } from '../../api';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
@@ -20,9 +20,14 @@ function MovieDetail() {
 
   const movieDetail = useMovieDetailData() as GetMovieDetailResponse;
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleModalClose = () => {
-    navigate(-1);
+    if (location.key === 'default') {
+      navigate('/', { replace: true });
+    } else {
+      navigate(-1);
+    }
   };
 
   const backdropUrl = makeBackdropUrl(movieDetail.backdrop_path);
