@@ -46,15 +46,15 @@ function MovieDetail() {
             { key: 'Runtime', value: movieDetail.runtime },
             { key: 'Rating', value: movieDetail.vote_average },
             { key: 'Homepage', value: movieDetail.homepage },
-          ].map(({ key, value }) => (
-            <>
-              {value && (
-                <Information>
+          ].map(({ key, value }) => {
+            return (
+              value && (
+                <Information key={key}>
                   <ItemName>{key}:</ItemName> {value}
                 </Information>
-              )}
-            </>
-          ))}
+              )
+            );
+          })}
         </DetailArea>
       </Modal>
     </Container>
