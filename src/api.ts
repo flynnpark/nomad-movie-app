@@ -4,8 +4,10 @@ import { BASE_URL, MovieListType } from './constants';
 
 const apiClient = axios.create({ baseURL: BASE_URL });
 
-export async function getMovies(type: MovieListType) {
-  const { data } = await apiClient.get<GetMoviesResponse>(`/${type}`);
+export async function getMovies(type: MovieListType, page: number) {
+  const { data } = await apiClient.get<GetMoviesResponse>(
+    `/${type}?page=${page}`
+  );
   return data;
 }
 

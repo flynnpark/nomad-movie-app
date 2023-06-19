@@ -19,8 +19,8 @@ export const loader =
 
     return (
       queryClient.getQueryData<GetMoviesResponse>(queryKey) ??
-      (await queryClient.fetchQuery({
-        queryFn: async () => getMovies(type),
+      (await queryClient.fetchInfiniteQuery({
+        queryFn: async () => getMovies(type, 1),
         queryKey,
       }))
     );

@@ -2,13 +2,17 @@ import { AnimatePresence } from 'framer-motion';
 import { Outlet } from 'react-router-dom';
 
 import MovieCard from '../../components/MovieCard';
-import { useMoviesData } from '../../hooks';
-import useTypeFromQuery from '../../hooks/useTypeFromQuery';
+import {
+  useIntersectionObserver,
+  useMoviesData,
+  useTypeFromQuery,
+} from '../../hooks';
 import { ListContainer } from './styled';
 
 function Home() {
   const type = useTypeFromQuery();
-  const moviesData = useMoviesData();
+  const { data: moviesData, fetchNextPage } = useMoviesData();
+  const { bottomItemRef } = useIntersectionObserver(fetchNextPage);
 
   return (
     <>
@@ -27,10 +31,13 @@ function Home() {
         initial="hidden"
         key={type}
       >
-        {moviesData?.results.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        {moviesData?.pages?.map((page) =>
+          page.results.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))
+        )}
       </ListContainer>
+      <div ref={bottomItemRef} />
       <AnimatePresence>
         <Outlet />
       </AnimatePresence>

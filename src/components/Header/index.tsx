@@ -1,5 +1,5 @@
 import { MovieListType } from '../../constants';
-import useTypeFromQuery from '../../hooks/useTypeFromQuery';
+import { useTypeFromQuery } from '../../hooks';
 import Item from './Item';
 import { MenuItems, Nav, NavContainer } from './styled';
 

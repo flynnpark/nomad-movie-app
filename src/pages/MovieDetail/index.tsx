@@ -1,8 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { makeBackdropUrl } from '../../api';
-import useLockBodyScroll from '../../hooks/useLockBodyScroll';
-import useMovieDetailData from '../../hooks/useMovieDetailData';
+import { useLockBodyScroll, useMovieDetailData } from '../../hooks';
 import {
   Backdrop,
   BackdropArea,
