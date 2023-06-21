@@ -2,10 +2,11 @@ import axios from 'axios';
 
 import { BASE_URL, MovieListType } from './constants';
 
+// CodeSandbox 문제로 인해 API키 추가
 const apiClient = axios.create({
   baseURL: BASE_URL,
   headers: {
-    Authorization: `Bearer ${import.meta.env.VITE_TMDB_KEY}`,
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlOWM5OTk1ZGE0OTM5NTVjYTk5ZmU0YmU0YzFkNjBhNCIsInN1YiI6IjVhYjk5MzE1MGUwYTI2MzY0ODAwYmFiZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ErNg1ZIlSWbXMfOv3qN40WeMBivrS2aDgqyE6D0CCSw`,
   },
 });
 
